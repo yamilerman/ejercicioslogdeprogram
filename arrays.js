@@ -76,19 +76,49 @@ console.log("Suma:", suma);
 como parámetro, o -1 si no existe en la lista.*/
 
 function encontrarIndiceElemento(lista, elemento) {
-    for (let i = 0; i < lista.length; i++) {
-      if (lista[i] === elemento) {
-        return i; // Retorna el índice del elemento encontrado
-      }
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] === elemento) {
+      return i; // Retorna el índice del elemento encontrado
     }
-    return -1; // Retorna -1 si el elemento no se encuentra en la lista
   }
-
-// función que reciba dos listas de números del mismo 
-//tamaño y devuelva una nueva lista con la suma de los elementos uno a uno
-function sumarListas (lista1, lista2){
-    //valido que las listas tengan la misma longitud
+  return -1; // Retorna -1 si el elemento no se encuentra en la lista
 }
 
+// función que reciba dos listas de números del mismo
+//tamaño y devuelva una nueva lista con la suma de los elementos uno a uno
+function sumarListas(lista1, lista2) {
+  //valido que las listas tengan la misma longitud
+  if (lista1.length !== lista2.length) {
+    throw new Error("Las listas deben tener la misma longitud");
+  }
+  //Nueva lista para almacenar los resultados
+  const sumaListas = [];
+
+  //Recorrer las listas y sumar los elementos uno a uno
+  for (let i = 0; i < lista1.length; i++) {
+    sumaListas.push(lista1[i] + lista2[i]);
+  }
+  //Devolver la nueva lista con las sumas
+  return sumaListas;
+}
+//Ejemplo de uso
+const lista1 = [1, 2, 3, 4, 5];
+const lista2 = [6, 7, 8, 9, 10];
+
+const resultado = sumarListas(lista1, lista2);
+console.log(resultado);
 
 //función que reciba una lista de números y devuelva una nueva lista con el cuadrado de cada número
+function cuadrados(lista) {
+  const cuadradosLista = [];
+  //recorrer la lista y calcular el cuadrado de cada elemento
+  for (let i = 0; i < lista.length; i++) {
+    cuadradosLista.push(lista[i] * lista[i]);
+  }
+  return cuadradosLista;
+}
+
+// ejemplo de uso
+const listaNumeros = [1, 2, 3, 4, 5];
+const resultado = cuadrados(listaNumeros);
+console.log(resultado);
